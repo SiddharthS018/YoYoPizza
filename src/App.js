@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ChatBot from 'react-simple-chatbot';
+const express = require('express')
 const mongoose = require('mongoose')
 
+// const MONGO = process.env.REACT_APP_MONGO_CONNECTION
 
-mongoose.connect('mongodb+srv://sid:sidsidsid@formycat.vxasp.mongodb.net/tracker?retryWrites=true&w=majority', {useNewUrlParser: true},{ useUnifiedTopology: true })
-const db = mongoose.connection;
+// mongoose.connect(`mongodb+srv://${MONGO}.vxasp.mongodb.net/tracker?retryWrites=true&w=majority`, {useNewUrlParser: true},{ useUnifiedTopology: true });
+// const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('We are connected !!')
-});
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log('We are connected !!')
+// });
 
-// const pizzaSchema = new mongoose.Schema({
-//     name : String,
-//     orderedPizza : String,
-//     quantity : Number
-//   })
+const pizzaSchema = new mongoose.Schema({
+    name : String,
+    orderedPizza : String,
+    quantity : Number
+  })
 
-//   const pizza = mongoose.model('yoyopizza', pizzaSchema)
+  const pizza = mongoose.model('yoyopizza', pizzaSchema)
 
-//   const createDoc =()=>{const create = new pizza({ name: 'sidd',orderedPizza:'Veg pizza',quantity:5 })
-//   create.save(function (err, create) {
-//     if (err) return console.error(err) 
-//     create.speak()
-//   })
-// }
-// createDoc()
+  const createDoc =()=>{const create = new pizza({ name: 'sidd',orderedPizza:'Veg pizza',quantity:5 })
+  create.save(function (err, create) {
+    if (err) return console.error(err) 
+    create.speak()
+  })
+}
+createDoc()
 
 class Review extends Component {
   constructor(props) {

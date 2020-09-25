@@ -14,7 +14,12 @@
     "react-simple-chatbot": "^0.6.1",
     "styled-components": "^5.2.0"
   },
-  "scripts": {
+  "engines": {
+    "npm": "6.14.7",
+    "node": "14.18.0"
+  },
+    "scripts": {
+      "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
